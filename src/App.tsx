@@ -6,7 +6,7 @@ import CountryInfo from "./components/CountryInfo";
 function App() {
   return (
     <>
-      <div className="bg-[#202c37ff] min-h-screen  w-full">
+      <div className="bg-[#202c37ff] min-h-screen  w-full light:bg-[#fcfcfcff]">
         <Router>
           <Nav />
           <Routes>

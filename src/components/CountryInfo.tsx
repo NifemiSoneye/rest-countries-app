@@ -30,7 +30,7 @@ const CountryInfo = () => {
   return (
     <div className="mx-[2rem] my-[2rem] lg:mx-[6rem]">
       <button
-        className="bg-[#2b3945ff] text-white py-[0.5rem] px-[2rem] shadow-lg"
+        className="bg-[#2b3945ff] text-white py-[0.5rem] px-[2rem] shadow-lg light:bg-white light:text-black"
         onClick={() => navigate(-1)}
       >
         <FontAwesomeIcon icon={faArrowLeftLong} className="pr-[0.5rem]" />
@@ -40,35 +40,29 @@ const CountryInfo = () => {
         <img
           src={country?.flags.svg}
           alt="county-flag"
-          className="h-[25vh] w-[80vw] mt-[2rem] lg:w-[35vw] lg:h-[50vh]"
+          className="h-[25vh] w-[80vw] mt-[2rem] lg:w-[35vw] lg:h-[50vh] shadow-lg"
         />
-        <div className="lg:mt-[3rem]">
-          <h1 className="text-white font-semibold text-[26px] my-[1rem]">
+        <div className="lg:mt-[3rem] text-white light:text-black">
+          <h1 className=" font-semibold text-[26px] my-[1rem] ">
             {country.name}
           </h1>
           <div className="lg:flex justify-between">
             <div className="mb-[1.5rem]">
-              <p className="text-white pb-[0.25rem]">
+              <p className=" pb-[0.25rem]">
                 Native Name : {country.nativeName}
               </p>
-              <p className="text-white pb-[0.25rem]">
+              <p className=" pb-[0.25rem]">
                 Population: {formatWithCommas(country.population)}
               </p>
-              <p className="text-white pb-[0.25rem]">
-                Region: {country.region}
-              </p>
-              <p className="text-white pb-[0.25rem]">
-                Sub Region: {country.subregion}
-              </p>
-              <p className="text-white pb-[0.25rem]">
-                Capital: {country.capital}
-              </p>
+              <p className=" pb-[0.25rem]">Region: {country.region}</p>
+              <p className=" pb-[0.25rem]">Sub Region: {country.subregion}</p>
+              <p className=" pb-[0.25rem]">Capital: {country.capital}</p>
             </div>
             <div className="mb-[1rem]">
-              <p className="text-white pb-[0.25rem]">
+              <p className=" pb-[0.25rem]">
                 Top Level Domain: {country.topLevelDomain}
               </p>
-              <p className="text-white pb-[0.25rem]">
+              <p className=" pb-[0.25rem]">
                 Currencies:{" "}
                 {country.currencies && country.currencies.length > 0
                   ? country.currencies.map((currency, index) => (
@@ -78,7 +72,7 @@ const CountryInfo = () => {
                     ))
                   : "N/A"}
               </p>
-              <p className="text-white pb-[0.25rem]">
+              <p className=" pb-[0.25rem]">
                 Languages:{" "}
                 {country.languages && country.languages.length > 0
                   ? country.languages
@@ -90,8 +84,8 @@ const CountryInfo = () => {
             </div>
           </div>
           <div className="lg:flex lg:items-center gap-6">
-            <p className="text-white font-semibold">Border Countries:</p>
-            <div className="flex justify-between overflow-x-auto mt-[1rem] lg:mt-0 text-white">
+            <p className=" font-semibold">Border Countries:</p>
+            <div className="flex justify-between overflow-x-auto mt-[1rem] lg:mt-0 ">
               {country.borders && country.borders.length > 0
                 ? rawdata
                     .filter((c) => country.borders?.includes(c.alpha3Code))
@@ -101,9 +95,9 @@ const CountryInfo = () => {
                         <Link to={`/country/${borderCountry.alpha3Code}`}>
                           <button
                             key={index}
-                            className="bg-[#2b3945ff]  px-[1rem] mr-[0.5rem] text-white text-[14px] lg:w-[120px] w-[100px] min-h-[50px] lg:px-[0.5rem] lg:py-[0.25rem]
+                            className="bg-[#2b3945ff] light:bg-white px-[1rem] mr-[0.5rem]  text-[14px] lg:w-[120px] w-[100px] min-h-[50px] lg:px-[0.5rem] lg:py-[0.25rem]
                             py-[0.5rem] flex items-center justify-center 
-             text-center shadow-lg"
+             text-center shadow-md lg:mr-[1.5rem]"
                           >
                             {borderCountry.name}
                           </button>
