@@ -98,9 +98,9 @@ const Home = () => {
             onChange={handleChange}
           />
         </div>
-        <div className="relative w-[50vw] mt-[2rem] mb-[2rem] lg:mx-[4rem] lg:w-[10vw] lg:mt-[4rem]">
+        <div className="relative w-[50vw] mt-[2rem] mb-[2rem] lg:mx-[4rem] lg:w-[10vw] lg:mt-[3.5rem]">
           <button
-            className="bg-[#2b3945ff]  text-white p-[1rem] rounded-md"
+            className="bg-[#2b3945ff]  text-white p-[1rem] rounded-md lg:min-w-[10vw]"
             onClick={handleFilterClick}
           >
             <div className="flex items-center justify-between text-[14px] rounded-lg text-nowrap">
