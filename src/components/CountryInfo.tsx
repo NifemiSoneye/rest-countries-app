@@ -28,7 +28,7 @@ const CountryInfo = () => {
     );
   }
   return (
-    <div className="mx-[2rem] my-[2rem] lg:mx-[6rem]">
+    <div className="mx-[2rem] mt-[2rem] lg:mx-[6rem]">
       <button
         className="bg-[#2b3945ff] text-white py-[0.5rem] px-[2rem] shadow-lg light:bg-white light:text-black"
         onClick={() => navigate(-1)}
