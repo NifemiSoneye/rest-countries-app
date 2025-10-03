@@ -88,11 +88,11 @@ const Home = () => {
         <div className="relative mt-[1rem] w-[90vw] flex items-center justify-evenly lg:w-[30vw] lg:ml-[4rem]">
           <FontAwesomeIcon
             icon={faMagnifyingGlass}
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white ml-[1rem]"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white ml-[1rem] light:text-[#808080ff]"
           />
           <input
             type="text"
-            className="bg-[#2b3945ff] w-[90vw]  text-white p-[1rem] pl-[5rem] lg:w-[30vw] rounded-md"
+            className="bg-[#2b3945ff] w-[90vw]  text-white p-[1rem] pl-[5rem] lg:w-[30vw] rounded-md light:bg-white shadow-md"
             placeholder="Search for a country..."
             value={search}
             onChange={handleChange}
@@ -100,14 +100,14 @@ const Home = () => {
         </div>
         <div className="relative w-[50vw] mt-[2rem] mb-[2rem] lg:mx-[4rem] lg:w-[10vw] lg:mt-[3.5rem]">
           <button
-            className="bg-[#2b3945ff]  text-white p-[1rem] rounded-md lg:min-w-[10vw]"
+            className="bg-[#2b3945ff]  text-white p-[1rem] rounded-md lg:min-w-[10vw] light:bg-white light:text-black  shadow-md"
             onClick={handleFilterClick}
           >
             <div className="flex items-center justify-between text-[14px] rounded-lg text-nowrap">
               {region.length ? region : "Filter by Region"}
               <FontAwesomeIcon
                 icon={faChevronDown}
-                className="mx-[0.5rem] text-white"
+                className="mx-[0.5rem] text-white light:text-black"
               />
             </div>
           </button>
