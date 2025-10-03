@@ -19,7 +19,7 @@ const Nav = () => {
     }
   }, [lightMode]);
   return (
-    <div className="bg-[#2b3945ff] h-full w-full flex items-center justify-between py-[2rem] px-[1rem] lg:px-[6rem] light:bg-[#ffffffff]">
+    <div className="bg-[#2b3945ff] h-full w-full flex items-center justify-between py-[2rem] px-[1rem] lg:px-[6rem] light:bg-[#ffffffff] shadow-md">
       <p className="text-white font-bold text-[18px] light:text-black">
         Where in the world?
       </p>
