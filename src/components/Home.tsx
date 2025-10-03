@@ -92,7 +92,7 @@ const Home = () => {
           />
           <input
             type="text"
-            className="bg-[#2b3945ff] w-[90vw]  text-white p-[1rem] pl-[5rem] lg:w-[30vw] rounded-md light:bg-white shadow-md"
+            className="bg-[#2b3945ff] w-[90vw]  text-white p-[1rem] pl-[5rem] lg:w-[30vw] rounded-md light:bg-white shadow-md light:text-[#808080ff]"
             placeholder="Search for a country..."
             value={search}
             onChange={handleChange}
@@ -107,14 +107,16 @@ const Home = () => {
               {region.length ? region : "Filter by Region"}
               <FontAwesomeIcon
                 icon={faChevronDown}
-                className="mx-[0.5rem] text-white light:text-black"
+                className={`mx-[0.5rem] text-white light:text-black transition-transform duration-300 ${
+                  filter ? "rotate-180" : ""
+                }`}
               />
             </div>
           </button>
           {filter && (
-            <div className="bg-[#2b3945ff] z-[999] mt-[0.5rem] p-[1rem] text-white rounded-lg absolute top-full left-0 w-full lg:h-[180px]">
+            <div className="bg-[#2b3945ff] z-[999] mt-[0.5rem] p-[1rem] text-white rounded-lg absolute top-full left-0 w-full lg:h-[180px] light:bg-white light:text-black shadow-md">
               <p
-                className="py-[0.25rem]"
+                className="py-[0.25rem] "
                 onClick={() => handleFilter("Africa")}
               >
                 Africa
@@ -145,10 +147,12 @@ const Home = () => {
         </div>
       </div>
       <ul>
-        <div className="grid grid-cols-1 place-items-center lg:grid-cols-4">
-          {searchResults.map((country) => (
-            <Country key={country.numericCode} country={country} />
-          ))}
+        <div className="grid grid-cols-1 place-items-center lg:grid-cols-4 text-white light:text-black ">
+          {searchResults.length > 0
+            ? searchResults.map((country) => (
+                <Country key={country.numericCode} country={country} />
+              ))
+            : "No country found"}
         </div>
       </ul>
     </div>

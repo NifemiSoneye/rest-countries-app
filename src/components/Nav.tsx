@@ -20,18 +20,20 @@ const Nav = () => {
   }, [lightMode]);
   return (
     <div className="bg-[#2b3945ff] h-full w-full flex items-center justify-between py-[2rem] px-[1rem] lg:px-[6rem] light:bg-[#ffffffff]">
-      <p className="text-white font-semibold light:text-black">
+      <p className="text-white font-bold text-[18px] light:text-black">
         Where in the world?
       </p>
       <div
-        className="flex items-center"
+        className="flex items-center cursor-pointer"
         onClick={() => setLightMode(!lightMode)}
       >
         <FontAwesomeIcon
           icon={lightMode ? regularMoon : solidMoon}
           className="mx-[0.5rem] text-white light:text-black"
         />
-        <p className="text-white light:text-black">Dark Mode</p>
+        <p className="text-white light:text-black">
+          {lightMode ? "Light Mode" : "Dark Mode"}
+        </p>
       </div>
     </div>
   );
