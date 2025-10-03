@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface CountryType {
   name: string;
@@ -55,23 +56,25 @@ const Country = ({ country }: PropType) => {
     return parseFloat(num).toLocaleString("en-US");
   };
   return (
-    <div className="bg-[#2b3945ff] h-[45vh] w-[65vw] my-[2rem] mx-[1rem] rounded-lg lg:w-[15vw] lg:mx-[0.5rem]">
-      <img
-        src={country.flags.png}
-        alt="country-flag"
-        className="h-[40%] w-[100%] "
-      />
-      <div className="m-[1rem]">
-        <p className="text-white font-semibold mb-[1rem] text-[1.2rem]">
-          {country.name}
-        </p>
-        <p className="text-white mb-[0.2rem]">
-          Population: {formatWithCommas(country.population)}
-        </p>
-        <p className="text-white mb-[0.2rem]">Region: {country.region}</p>
-        <p className="text-white">Capital: {country.capital}</p>
+    <Link to={`/country/${country.alpha3Code}`}>
+      <div className="bg-[#2b3945ff] h-[45vh] w-[65vw] my-[2rem] mx-[1rem] rounded-lg lg:w-[15vw] lg:mx-[0.5rem]">
+        <img
+          src={country.flags.png}
+          alt="country-flag"
+          className="h-[40%] w-[100%] "
+        />
+        <div className="m-[1rem]">
+          <p className="text-white font-semibold mb-[1rem] text-[1.2rem]">
+            {country.name}
+          </p>
+          <p className="text-white mb-[0.2rem]">
+            Population: {formatWithCommas(country.population)}
+          </p>
+          <p className="text-white mb-[0.2rem]">Region: {country.region}</p>
+          <p className="text-white">Capital: {country.capital}</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
