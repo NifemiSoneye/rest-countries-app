@@ -95,7 +95,7 @@ const CountryInfo = () => {
                         <Link to={`/country/${borderCountry.alpha3Code}`}>
                           <button
                             key={index}
-                            className="bg-[#2b3945ff] light:bg-white px-[1rem] mr-[0.5rem]  text-[14px] lg:w-[120px] w-[100px] min-h-[50px] lg:px-[0.5rem] lg:py-[0.25rem]
+                            className="bg-[#2b3945ff] light:bg-white px-[0.75rem] mr-[0.5rem]  text-[14px] lg:w-[120px] w-[90px] min-h-[50px] lg:px-[0.5rem] lg:py-[0.25rem]
                             py-[0.5rem] flex items-center justify-center 
              text-center shadow-md lg:mr-[1.5rem]"
                           >
