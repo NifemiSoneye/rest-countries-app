@@ -4,7 +4,9 @@ import Country from "./Country";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-
+import { useSelector, useDispatch } from "react-redux";
+import { type RootState } from "../store/store";
+import { setSearch, setRegion } from "../store/filterSlice";
 interface CountryType {
   name: string;
   topLevelDomain: string[];
@@ -51,22 +53,20 @@ interface CountryType {
 
 const Home = () => {
   const data: CountryType[] = rawData as CountryType[];
-  const [search, setSearch] = useState<string>("");
-  const [region, setRegion] = useState<string>("");
+  const search = useSelector((state: RootState) => state.filter.search);
+  const region = useSelector((state: RootState) => state.filter.region);
+  const dispatch = useDispatch();
   const [searchResults, setSearchResults] = useState<CountryType[]>([]);
   const [filter, setFilter] = useState<boolean>(false);
   const filteredRegion = region.length
     ? data.filter((c) => c.region === region)
     : data;
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-  };
   useEffect(() => {
     const finalResults = filteredRegion.filter((country) =>
       country.name.toLowerCase().includes(search.toLowerCase())
     );
     setSearchResults(finalResults);
-  }, [search, setSearchResults]);
+  }, [search, filteredRegion]);
   const handleFilterClick = () => {
     if (!filter) {
       setFilter(true);
@@ -75,11 +75,7 @@ const Home = () => {
     }
   };
   const handleFilter = (option: string) => {
-    const filteredResults = data.filter(
-      (country) => country.region.toLowerCase() === option.toLowerCase()
-    );
-    setRegion(option);
-    setSearchResults(filteredResults);
+    dispatch(setRegion(option));
     setFilter(false);
   };
   return (
@@ -95,7 +91,7 @@ const Home = () => {
             className="bg-[#2b3945ff] w-[90vw]  text-white p-[1rem] pl-[5rem] lg:w-[30vw] rounded-md light:bg-white shadow-md light:text-[#808080ff]"
             placeholder="Search for a country..."
             value={search}
-            onChange={handleChange}
+            onChange={(e) => dispatch(setSearch(e.target.value))}
           />
         </div>
         <div className="relative w-[50vw] mt-[2rem] mb-[2rem] lg:mx-[4rem] lg:w-[10vw] lg:mt-[3.5rem]">
