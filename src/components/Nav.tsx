@@ -1,7 +1,7 @@
 import { faMoon as regularMoon } from "@fortawesome/free-regular-svg-icons";
 import { faMoon as solidMoon } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { type RootState } from "../store/store";
 import { toggleTheme } from "../store/themeSlice";

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import rawData from "../data/db.json";
 import Country from "./Country";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
